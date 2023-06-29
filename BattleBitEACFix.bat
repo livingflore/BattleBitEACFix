@@ -42,7 +42,6 @@ pause
 cls
 
 echo Closing EAC and game...
-
 taskkill /f /im BattleBit.exe 2>nul 1>nul
 taskkill /f /im BattleBitEAC.exe 2>nul 1>nul
 taskkill /f /im EasyAntiCheat.exe 2>nul 1>nul
@@ -50,25 +49,26 @@ taskkill /f /im EasyAntiCheat_EOS_Setup.exe 2>nul 1>nul
 taskkill /f /im UnityCrashHandler64.exe 2>nul 1>nul
 
 echo Removing EAC Service...
-
 FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 671860" /v "InstallLocation"') do %%b\EasyAntiCheat\EasyAntiCheat_EOS_Setup.exe uninstall 43ed9a4620fa486994c0b368cce73b5d
 FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 671860" /v "InstallLocation"') do %%b\EasyAntiCheat\EasyAntiCheat_EOS_Setup.exe qa-factory-reset
-
 sc delete EasyAntiCheat_EOS 2>nul 1>nul
 sc delete EasyAntiCheat 2>nul 1>nul
 
 echo Removing EAC_EOS folder...
-
 rmdir /q /s "C:\Program Files (x86)\EasyAntiCheat_EOS" 2>nul 1>nul
 
 echo Installing EAC...
-
 FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 671860" /v "InstallLocation"') do %%b\EasyAntiCheat\EasyAntiCheat_EOS_Setup.exe install 43ed9a4620fa486994c0b368cce73b5d
 
 echo Switching EAC service mode to automatic...
-echo.
 sc config EasyAntiCheat_EOS start=Auto 2>nul 1>nul
 
+echo Adding EAC ^& BattleBit Folder to Windows Defender exclusions...
+FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 671860" /v "InstallLocation"') do powershell -Command Add-MpPreference -ExclusionPath '%%b' > nul
+powershell -Command Add-MpPreference -ExclusionPath 'C:\Program Files (x86)\EasyAntiCheat' > nul
+powershell -Command Add-MpPreference -ExclusionPath 'C:\Program Files (x86)\EasyAntiCheat_EOS' > nul
+
+echo.
 echo EAC reinstall completed.
 echo.
 

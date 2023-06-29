@@ -81,56 +81,39 @@ curl download-alt.easyanticheat.net
 echo.
 
 echo.
-echo Checking VC_redist.x64...
+echo Installing VCRedist 2015-2022 x86-64
+echo.
 
-REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\14.0\VC\Runtimes\X64" /v "Installed" >nul 2>nul || ( GOTO NOTFOUNDX64REDIST )
-goto REGQUERY_X64REDIST_SUCCESS
-:NOTFOUNDX64REDIST
-   echo Downloading VC_redist.x64 (14.36.32532.0)
-   ::bitsadmin.exe /transfer "VC_redist.x64 (14.36.32532.0)" /download /priority FOREGROUND "http://download.visualstudio.microsoft.com/download/pr/eaab1f82-787d-4fd7-8c73-f782341a0c63/917C37D816488545B70AFFD77D6E486E4DD27E2ECE63F6BBAAF486B178B2B888/VC_redist.x64.exe" %temp%VC_redist.x64.exe > nul
-   curl http://download.visualstudio.microsoft.com/download/pr/eaab1f82-787d-4fd7-8c73-f782341a0c63/917C37D816488545B70AFFD77D6E486E4DD27E2ECE63F6BBAAF486B178B2B888/VC_redist.x64.exe --output %temp%"VC_redist.x64.exe" --progress-bar
+echo Downloading VC_redist.x64...
+curl -L https://aka.ms/vs/17/release/vc_redist.x64.exe --output %temp%"VC_redist.x64.exe" --progress-bar
+if ERRORLEVEL 0 (
+   echo Installing VC_redist.x64.exe ^(might take a bit^)...
+   %temp%VC_redist.x64.exe /install /quiet /norestart
    if ERRORLEVEL 0 (
-      echo Installing VC_redist.x64.exe ^(might take a bit^)...
-      %temp%VC_redist.x64.exe /install /quiet /norestart
-      if ERRORLEVEL 0 (
-         echo VC_redist.x64.exe installed successful!
-      ) else (
-         echo VC_redist.x64.exe install failed with code: %ERRORLEVEL%
-      )
-      del %temp%VC_redist.x64.exe
+      echo VC_redist.x64.exe installed successful!
    ) else (
-	   echo VC_redist.x64 - download failed ^:^(
+      echo VC_redist.x64.exe install failed with code: %ERRORLEVEL%
    )
-   goto REGQUERY_X64REDIST_OUT
-:REGQUERY_X64REDIST_SUCCESS
-   echo VC_redist.x64 already installed, skipping...
-:REGQUERY_X64REDIST_OUT
+   del %temp%VC_redist.x64.exe
+) else (
+   echo VC_redist.x64 - download failed ^:^(
+)
 
 echo.
-echo Checking VC_redist.x86...
-
-REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\14.0\VC\Runtimes\X86" /v "Installed" >nul 2>nul || ( GOTO NOTFOUNDX86REDIST )
-goto REGQUERY_X86REDIST_SUCCESS
-:NOTFOUNDX86REDIST
-   echo Downloading VC_redist.x86 (14.36.32532.0)
-   ::bitsadmin.exe /transfer "VC_redist.x86 (14.36.32532.0)" /download /priority FOREGROUND "https://download.visualstudio.microsoft.com/download/pr/eaab1f82-787d-4fd7-8c73-f782341a0c63/5365A927487945ECB040E143EA770ADBB296074ECE4021B1D14213BDE538C490/VC_redist.x86.exe" %temp%VC_redist.x86.exe > nul
-   curl https://download.visualstudio.microsoft.com/download/pr/eaab1f82-787d-4fd7-8c73-f782341a0c63/5365A927487945ECB040E143EA770ADBB296074ECE4021B1D14213BDE538C490/VC_redist.x86.exe --output %temp%"VC_redist.x86.exe" --progress-bar
-   if ERRORLEVEL 0 (   
-      echo Installing VC_redist.x86.exe ^(might take a bit^)...
-      %temp%VC_redist.x86.exe /install /quiet /norestart
-      if ERRORLEVEL 0 (
-         echo VC_redist.x86.exe installed successful!
-      ) else (
-         echo VC_redist.x86.exe install failed with code: %ERRORLEVEL%
-      )
-      del %temp%VC_redist.x86.exe
+echo Downloading VC_redist.x86...
+curl -L https://aka.ms/vs/17/release/vc_redist.x86.exe --output %temp%"VC_redist.x86.exe" --progress-bar
+if ERRORLEVEL 0 (   
+   echo Installing VC_redist.x86.exe ^(might take a bit^)...
+   %temp%VC_redist.x86.exe /install /quiet /norestart
+   if ERRORLEVEL 0 (
+      echo VC_redist.x86.exe installed successful!
    ) else (
-	   echo VC_redist.x86.exe - download failed ^:^(
+      echo VC_redist.x86.exe install failed with code: %ERRORLEVEL%
    )
-   goto REGQUERY_X86REDIST_OUT
-:REGQUERY_X86REDIST_SUCCESS
-   echo VC_redist.x86 already installed, skipping...
-:REGQUERY_X86REDIST_OUT
+   del %temp%VC_redist.x86.exe
+) else (
+   echo VC_redist.x86.exe - download failed ^:^(
+)
 
 echo.
 echo Finished!

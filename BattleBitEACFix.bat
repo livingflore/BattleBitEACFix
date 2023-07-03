@@ -86,10 +86,10 @@ echo Flushing DNS...
 ipconfig /flushdns 2>nul 1>nul
 echo Testing EAC Connection...
 echo download.eac-cdn.com:
-curl download.eac-cdn.com
+curl download.eac-cdn.com --max-time 10
 echo.
 echo download-alt.easyanticheat.net:
-curl download-alt.easyanticheat.net
+curl download-alt.easyanticheat.net --max-time 10
 echo.
 
 echo.
@@ -97,8 +97,8 @@ echo Installing VCRedist 2015-2022 x86-64
 echo.
 
 echo Downloading VC_redist.x64...
-curl -L https://aka.ms/vs/17/release/vc_redist.x64.exe --output %temp%"VC_redist.x64.exe" --progress-bar
-if ERRORLEVEL 0 (
+curl -L https://aka.ms/vs/17/release/vc_redist.x64.exe --output %temp%"VC_redist.x64.exe" --write-out "%errorlevel%" --progress-bar 1>nul
+if %errorlevel% EQU 00 (
    echo Installing VC_redist.x64.exe ^(might take a bit^)...
    %temp%VC_redist.x64.exe /install /quiet /norestart
    if ERRORLEVEL 0 (
@@ -113,8 +113,8 @@ if ERRORLEVEL 0 (
 
 echo.
 echo Downloading VC_redist.x86...
-curl -L https://aka.ms/vs/17/release/vc_redist.x86.exe --output %temp%"VC_redist.x86.exe" --progress-bar
-if ERRORLEVEL 0 (   
+curl -L https://aka.ms/vs/17/release/vc_redist.x86.exe --output %temp%"VC_redist.x86.exe" --write-out "%errorlevel%" --progress-bar 1>nul
+if %errorlevel% EQU 00 (   
    echo Installing VC_redist.x86.exe ^(might take a bit^)...
    %temp%VC_redist.x86.exe /install /quiet /norestart
    if ERRORLEVEL 0 (

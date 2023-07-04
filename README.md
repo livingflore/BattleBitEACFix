@@ -16,7 +16,8 @@ This batch script reinstalls EAC completely and also installs VCRedist x86-64 20
 1) Run the batch (download button above).
 2) Ensure that **BOTH** VCRedists installed properly - [x86](https://aka.ms/vs/17/release/vc_redist.x86.exe) and [x64](https://aka.ms/vs/17/release/vc_redist.x64.exe).
 When running installers you should see 3 buttons - repair, uninstall and cancel. If you can't see it - proceed with installation.
-3) You might experience some issues with connection and therefore EAC can't reach its servers. Try using [Cloudflare WARP](https://1.1.1.1) or any private VPN on this matter.
+3) Try running BattlebitEAC.exe or EasyAntiCheat.exe from admin located in installed files (right click on game > properties > installed files > browse)
+4) You might experience some issues with connection and therefore EAC can't reach its servers. Try using [Cloudflare WARP](https://1.1.1.1) or any private VPN on this matter.
 
 ### [•](https://i.imgur.com/ADtyLmM.png) Launch Error - Easy Anti-Cheat is not installed.
 Run the ["Install & Repair Easy Anti Cheat"](https://i.imgur.com/466AXn8.png) launch option.
@@ -39,8 +40,9 @@ right click on `EasyAntiCheat_EOS`, and grant full access for all application pa
 
 ### [•](https://i.imgur.com/rR0rDnB.png) You were kicked by anti cheat. Make sure...
 0) if you using custom lang file - get rid of it and you're fine.
-1) Run the batch (download button above) and ensure that nothing blocks EAC connection.
-2) Delete Certificates folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > EasyAntiCheat folder and 
+1) If you're on linux - make sure that you don't have EAC entries in /etc/hosts (which was needed for Star Citizen for example).
+2) Run the batch (download button above) and ensure that nothing blocks EAC connection.
+3) Delete Certificates folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > EasyAntiCheat folder and 
 [verify game files](https://discord.com/channels/303681520202285057/1023557425594372217/1125549517027160097). 
 3) Change your IP by restarting modem/router or use private VPN/[Cloudflare WARP](https://1.1.1.1).
 4) If anything above won't help you, then you are on your own. Good luck.

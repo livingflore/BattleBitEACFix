@@ -1,6 +1,6 @@
 <p align="center"><img width="320" src="https://i.imgur.com/9ORteWj.png" /></p>
 <h1 align="center">
-  Battlebit EAC Fix</h1>
+  BattleBit EAC Fix</h1>
   
 [![Download batch](https://custom-icon-badges.herokuapp.com/badge/-Download-black?style=for-the-badge&logo=download&logoColor=white)](https://github.com/livingflore/BattleBitEACFix/archive/refs/heads/main.zip)
 [![Discord](https://custom-icon-badges.herokuapp.com/badge/-Discord-black?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/battlebit)
@@ -25,7 +25,8 @@ If you can't reach launch options, [right click on the game > Properties](https:
 
 ### [•](https://i.imgur.com/yzxejzh.png) CreateFile failed with 32.
 1) Reboot your PC.
-2) Run the batch (download button above).
+2) Remove `EasyAntiCheat_EOS.sys` located in `C:\Program Files (x86)\EasyAntiCheat_EOS`.
+3) Run the batch (download button above).
 
 ### [•](https://i.imgur.com/tDRxBLb.png) Untrusted System File 
 Depending on what driver causes this, you may need to [reinstall](https://www.drivereasy.com/knowledge/how-to-reinstall-gpu-drivers-with-ddu/)/update your GPU drivers

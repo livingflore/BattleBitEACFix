@@ -26,11 +26,11 @@ If you can't reach launch options, [right click on the game > Properties](https:
 
 ### [•](https://i.imgur.com/yzxejzh.png) CreateFile failed with 32.
 1) Reboot your PC.
-2) Remove `EasyAntiCheat_EOS.sys` located in `C:\Program Files (x86)\EasyAntiCheat_EOS`.
+2) Remove `EasyAntiCheat_EOS.sys` file located in `C:\Program Files (x86)\EasyAntiCheat_EOS`.
 3) Run the batch (download button above).
 
 ### [•](https://i.imgur.com/tDRxBLb.png) Untrusted System File 
-Depending on what driver causes this, you may need to [reinstall](https://www.drivereasy.com/knowledge/how-to-reinstall-gpu-drivers-with-ddu/)/update your GPU drivers
+Depending on what driver causes this, you may need to [reinstall](https://support.nzxt.com/hc/en-us/articles/4403882406555-Reinstalling-Graphic-Drivers)/update your GPU drivers
 or run `sfc /scannow` and `dism /online /cleanup-image /restorehealth` in cmd.exe from admin.
 
 ### [•](https://i.imgur.com/mePC8z1.png) StartService EasyAntiCheat_EOSSys failed with 5.
@@ -41,11 +41,12 @@ right click on `EasyAntiCheat_EOS`, and grant full access for all application pa
 ### [•](https://i.imgur.com/rR0rDnB.png) You were kicked by anti cheat. Make sure...
 0) if you using custom lang file - get rid of it and you're fine.
 1) If you're on linux - make sure that you don't have EAC entries in /etc/hosts (which was needed for Star Citizen for example).
-2) Run the batch (download button above) and ensure that nothing blocks EAC connection.
-3) Delete Certificates folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > EasyAntiCheat folder and 
+2) Run the batch (download button above).
+3) Ensure that absolutely **NOTHING** blocks EAC connection (antivirus/firewall/ISP).
+4) Delete Certificates folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > EasyAntiCheat folder and 
 [verify game files](https://discord.com/channels/303681520202285057/1023557425594372217/1125549517027160097). 
-3) Change your IP by restarting modem/router or use private VPN/[Cloudflare WARP](https://1.1.1.1).
-4) If anything above won't help you, then you are on your own. Good luck.
+5) Change your IP by restarting modem/router or use private VPN/[Cloudflare WARP](https://1.1.1.1).
+6) If anything above won't help you, then you are on your own. Good luck.
 
 ### • I can't find my problem above...
 Reach out to [#anti-cheat-help](https://discord.com/channels/303681520202285057/1023557300214050968) in BattleBit Discord server (button above) for futher assistance.

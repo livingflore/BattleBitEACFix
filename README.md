@@ -2,7 +2,7 @@
 <h1 align="center">
   BattleBit EAC Fix</h1>
   
-[![Download batch](https://custom-icon-badges.herokuapp.com/badge/-Download-black?style=for-the-badge&logo=download&logoColor=white)](https://github.com/livingflore/BattleBitEACFix/archive/refs/heads/main.zip)
+[![Download batch](https://custom-icon-badges.herokuapp.com/badge/-Download-black?style=for-the-badge&logo=download&logoColor=white)](https://livingflore.me/eacfix)
 [![Discord](https://custom-icon-badges.herokuapp.com/badge/-Discord-black?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/battlebit)
 
 
@@ -31,7 +31,7 @@ If you can't reach launch options, [right click on the game > Properties](https:
 
 ### [•](https://i.imgur.com/tDRxBLb.png) Untrusted System File 
 Depending on what driver causes this, you may need to [reinstall](https://support.nzxt.com/hc/en-us/articles/4403882406555-Reinstalling-Graphic-Drivers)/update your GPU drivers
-or run `sfc /scannow` and `dism /online /cleanup-image /restorehealth` in cmd.exe from admin.
+or run `sfc /scannow` and `dism /online /cleanup-image /restorehealth` in cmd.exe from admin (Press Win+R, type `cmd`, then press Ctrl+Shift+Enter).
 
 ### [•](https://i.imgur.com/mePC8z1.png) StartService EasyAntiCheat_EOSSys failed with 5.
 1) Run the batch (download button above).
@@ -40,13 +40,21 @@ right click on `EasyAntiCheat_EOS`, and grant full access for all application pa
 
 ### [•](https://i.imgur.com/rR0rDnB.png) You were kicked by anti cheat. Make sure...
 0) if you using custom lang file - get rid of it and you're fine.
-1) If you're on linux - make sure that you don't have EAC entries in /etc/hosts (which was needed for Star Citizen for example).
+1) If you're on linux - make sure that you don't have EAC entries in `/etc/hosts` (which was needed for Star Citizen for example).
 2) Run the batch (download button above).
 3) Ensure that absolutely **NOTHING** blocks EAC connection (antivirus/firewall/ISP).
-4) Delete Certificates folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > EasyAntiCheat folder and 
-[verify game files](https://discord.com/channels/303681520202285057/1023557425594372217/1125549517027160097). 
+4) Delete `Certificates folder` located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > `EasyAntiCheat` folder and 
+[verify game files](https://cdn.discordapp.com/attachments/1109901924314140732/1124030888276132000/BBR_Validation.gif). 
 5) Change your IP by restarting modem/router or use private VPN/[Cloudflare WARP](https://1.1.1.1).
 6) If anything above won't help you, then you are on your own. Good luck.
 
+### [•](https://i.imgur.com/N8Zyr47.jpg) The application was unable to start correctly (0xc0000005).
+This error code means access violation => could be anything.
+1) If you use third-party antivirus (not defender) make sure it is not interfering with the game (if it is trend micro - **DELETE IT**)
+2) Press Win+R, type `cmd`, then press Ctrl+Shift+Enter and run `sfc /scannow` (might take a bit) and `dism /online /cleanup-image /restorehealth`.
+3) Disable overclocking software if you have any.
+4) [Verify game files](https://cdn.discordapp.com/attachments/1109901924314140732/1124030888276132000/BBR_Validation.gif).
+5) Reinstall the game on other drive/partition. 
+
 ### • I can't find my problem above...
-Reach out to [#anti-cheat-help](https://discord.com/channels/303681520202285057/1023557300214050968) in BattleBit Discord server (button above) for futher assistance.
+Reach out to [#anti-cheat-help](https://discord.com/channels/303681520202285057/1023557300214050968) in BattleBit Discord server (button above) for assistance.

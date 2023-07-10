@@ -43,7 +43,7 @@ For any other error codes, fixes are universal:
 3) Try running BattlebitEAC.exe or EasyAntiCheat.exe as admin ([right click on executable > run as administrator](https://i.imgur.com/l4kF2o3.png)) located in installed files ([right click on the game > Properties](https://i.imgur.com/16aeGuw.png) [> installed files > browse](https://i.imgur.com/t8Pocyo.png)).
 4) [Verify game files](https://cdn.discordapp.com/attachments/1109901924314140732/1124030888276132000/BBR_Validation.gif).
 5) Enable [Data Execution Prevention](https://support.microsoft.com/en-us/topic/what-is-data-execution-prevention-dep-60dabc2b-90db-45fc-9b18-512419135817).
-6) Press Win+R, type `sigverif` and press enter. Proceed with driver signatures verification. After it, you'll be promted either with the list of unsigned drivers or message that it's all verified. In first case, depending on what drivers are unsigned, you may need to [reinstall](https://support.nzxt.com/hc/en-us/articles/4403882406555-Reinstalling-Graphic-Drivers)/update your GPU drivers
+6) Press Win+R, type `sigverif` and press enter. Proceed with driver signatures verification. After its finished, you'll be prompted either with the list of unsigned drivers or message that everything's fine. In first case, depending on what drivers are unsigned, you may need to [reinstall](https://support.nzxt.com/hc/en-us/articles/4403882406555-Reinstalling-Graphic-Drivers)/update your GPU drivers
 or run `sfc /scannow` and `dism /online /cleanup-image /restorehealth` in command prompt as admininstrator (Press Win+R, type `cmd`, then press Ctrl+Shift+Enter).
 
 ### [•](https://i.imgur.com/mePC8z1.png) StartService EasyAntiCheat_EOSSys failed with 5.

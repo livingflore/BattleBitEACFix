@@ -33,6 +33,19 @@ If you can't reach launch options, [right click on the game > Properties](https:
 Depending on what driver causes this, you may need to [reinstall](https://support.nzxt.com/hc/en-us/articles/4403882406555-Reinstalling-Graphic-Drivers)/update your GPU drivers
 or run `sfc /scannow` and `dism /online /cleanup-image /restorehealth` in command prompt as admininstrator (Press Win+R, type `cmd`, then press Ctrl+Shift+Enter).
 
+### [•](https://i.imgur.com/buVpgid.jpg) Game Violation Detected
+If you see #0000000D error code, get rid of a process that interfere with EAC (its name in square brackets).
+For any other error codes, fixes are universal:
+
+0) Check your task manager and get rid of any software that you think can interfere with EAC (RGB, tray minimizers, tweaks, etc).
+1) If you use third-party antivirus - make sure to add EAC to exclusions. If it won't help - get rid of this antivirus.
+2) Run the batch (download button above).
+3) Try running BattlebitEAC.exe or EasyAntiCheat.exe as admin ([right click on executable > run as administrator](https://i.imgur.com/l4kF2o3.png)) located in installed files ([right click on the game > Properties](https://i.imgur.com/16aeGuw.png) [> installed files > browse](https://i.imgur.com/t8Pocyo.png)).
+4) [Verify game files](https://cdn.discordapp.com/attachments/1109901924314140732/1124030888276132000/BBR_Validation.gif).
+5) Enable [Data Execution Prevention](https://support.microsoft.com/en-us/topic/what-is-data-execution-prevention-dep-60dabc2b-90db-45fc-9b18-512419135817).
+6) Press Win+R, type `sigverif` and press enter. Proceed with driver signatures verification. After it, you'll be promted either with the list of unsigned drivers or message that it's all verified. In first case, depending on what drivers are unsigned, you may need to [reinstall](https://support.nzxt.com/hc/en-us/articles/4403882406555-Reinstalling-Graphic-Drivers)/update your GPU drivers
+or run `sfc /scannow` and `dism /online /cleanup-image /restorehealth` in command prompt as admininstrator (Press Win+R, type `cmd`, then press Ctrl+Shift+Enter).
+
 ### [•](https://i.imgur.com/mePC8z1.png) StartService EasyAntiCheat_EOSSys failed with 5.
 1) Run the batch (download button above).
 2) Press Win+R, type `regedit.exe`, then go to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EasyAntiCheat_EOS`,
@@ -43,14 +56,14 @@ right click on `EasyAntiCheat_EOS`, and grant full access for all application pa
 1) If you're on linux - make sure that you don't have EAC entries in `/etc/hosts` (which was needed for Star Citizen for example).
 2) Run the batch (download button above).
 3) Ensure that absolutely **NOTHING** blocks EAC connection (antivirus/firewall/ISP).
-4) Delete `Certificates folder` located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > `EasyAntiCheat` folder and 
+4) Delete `Certificates` folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > `EasyAntiCheat` folder and 
 [verify game files](https://cdn.discordapp.com/attachments/1109901924314140732/1124030888276132000/BBR_Validation.gif). 
 5) Change your IP by restarting modem/router or use private VPN/[Cloudflare WARP](https://1.1.1.1).
-6) If anything above won't help you, then you are on your own. Good luck.
+6) If anything above doesn't help - you are on your own, sorry. 
 
 ### [•](https://i.imgur.com/N8Zyr47.jpg) The application was unable to start correctly (0xc0000005).
 This error code means access violation => could be anything.
-1) If you use third-party antivirus (if it is trend micro - **DELETE IT**) make sure it's not interfering with the game and add BattleBit and EAC folder to exclusions.
+1) If you use third-party antivirus make sure it's not interfering with the game and add BattleBit and EAC folder to exclusions. If it won't help - delete it.
 2) Try running BattlebitEAC.exe or EasyAntiCheat.exe as admin ([right click on executable > run as administrator](https://i.imgur.com/l4kF2o3.png)) located in installed files ([right click on the game > Properties](https://i.imgur.com/16aeGuw.png) [> installed files > browse](https://i.imgur.com/t8Pocyo.png)).
 3) Press Win+R, type `cmd`, then press Ctrl+Shift+Enter and run `sfc /scannow` (might take a bit) and `dism /online /cleanup-image /restorehealth`.
 4) Disable overclocking software if you have any.

@@ -78,6 +78,11 @@ powershell -Command Add-MpPreference -ExclusionPath %GamePath% > nul
 powershell -Command Add-MpPreference -ExclusionPath 'C:\Program Files (x86)\EasyAntiCheat' > nul
 powershell -Command Add-MpPreference -ExclusionPath 'C:\Program Files (x86)\EasyAntiCheat_EOS' > nul
 
+echo Adding EAC ^& BattleBit executables to Defender Firewall exclusions...
+powershell -Command New-NetFirewallRule -Program '%GamePath%\BattleBit.exe' -Action Allow -Profile Domain, Private -DisplayName 'Allow BattleBit' -Direction Outbound > nul
+powershell -Command New-NetFirewallRule -Program '%GamePath%\EasyAntiCheat.exe' -Action Allow -Profile Domain, Private -DisplayName 'Allow BattleBit EAC' -Direction Outbound > nul
+powershell -Command New-NetFirewallRule -Program 'C:\Program Files (x86)\EasyAntiCheat_EOS\EasyAntiCheat_EOS.exe' -Action Allow -Profile Domain, Private -DisplayName 'Allow EAC_EOS' -Direction Outbound > nul
+
 echo.
 echo EAC reinstall completed.
 echo.

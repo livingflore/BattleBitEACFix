@@ -53,7 +53,7 @@ right click on `EasyAntiCheat_EOS`, and grant full access for all application pa
 
 ### [•](https://i.imgur.com/rR0rDnB.png) You were kicked by anti cheat. Make sure...
 0) if you using custom lang file - get rid of it and you're fine.
-1) If you're on linux - make sure that you don't have EAC entries in `/etc/hosts` (which was needed for Star Citizen for example).
+1) Make sure that you don't have EAC entries in `/etc/hosts` (which was needed for Star Citizen for example).
 2) Run the batch (download button above).
 3) Ensure that absolutely **NOTHING** blocks EAC connection (antivirus/firewall/ISP).
 4) Delete `Certificates` folder located in [Installed Files](https://i.imgur.com/t8Pocyo.png) > `EasyAntiCheat` folder and 

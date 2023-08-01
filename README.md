@@ -2,7 +2,7 @@
 <h1 align="center">
   BattleBit EAC Fix</h1>
   
-[![Download batch](https://custom-icon-badges.herokuapp.com/badge/-Download-black?style=for-the-badge&logo=download&logoColor=white)](https://livingflore.me/eacfix)
+[![Download batch](https://custom-icon-badges.herokuapp.com/badge/-Download-black?style=for-the-badge&logo=download&logoColor=white)](https://github.com/livingflore/BattleBitEACFix/releases)
 [![Discord](https://custom-icon-badges.herokuapp.com/badge/-Discord-black?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/battlebit)
 [![Docs](https://custom-icon-badges.herokuapp.com/badge/-Docs-black?style=for-the-badge&logo=repo&logoColor=white)](https://docs.joinbattlebit.com/)
 

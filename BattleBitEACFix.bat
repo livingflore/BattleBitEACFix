@@ -12,6 +12,7 @@ if _%1_==_payload_  goto :payload
 goto :eof
 :payload
 
+title BattleBit EAC Fix >nul
 echo [7m@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo @@@@@@@@@@@@@@@@@@@@@@@PPPP@@@@@@@@@@@@@@@@@@@@@@@
@@ -47,7 +48,7 @@ FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Micros
 if DEFINED GamePath (
    echo [0m[94m[...][0m Game Path: %GamePath%
 ) else (
-   echo [91m[X][0m Game Path not found. Please install the game first, then run this batch script.
+   echo [91m[X][0m Unable to detect BattleBit Remastered folder. Please install the game first, then run this batch script.
    pause
    goto :eof
 )
@@ -114,7 +115,7 @@ set "signal=%dljob:~-13,-1%"
 for %%I in (waitfor.exe) do set "waitfor=%%~$PATH:I"
 >nul (
     bitsadmin /setnotifycmdline %dljob% "%waitfor%" "%waitfor% /s %computername% /si %signal%"
-    bitsadmin /addfile %dljob% "https://aka.ms/vs/17/release/vc_redist.x64.exe" "%temp%VC_redist.x64.exe"
+    bitsadmin /addfile %dljob% "https://aka.ms/vs/17/release/vc_redist.x64.exe" "%temp%\VC_redist.x64.exe"
     bitsadmin /setpriority %dljob% FOREGROUND
     start /b "" bitsadmin /resume %dljob%
     waitfor /t 100 %signal%
@@ -132,14 +133,14 @@ goto endinstall64
 
 :install64
 echo [94m[...][0m Installing VC_redist.x64.exe ^(might take a bit^)
-%temp%VC_redist.x64.exe /install /quiet /norestart
+%temp%\VC_redist.x64.exe /install /quiet /norestart
 if ERRORLEVEL 0 (
    echo [32m[+][0m VC_redist.x64.exe installed successfully!
 ) else (
    echo [31m[!][0m VC_redist.x64.exe install failed with code: %ERRORLEVEL%
    echo [31m[!][0m Please, download and install VC_redist.x64.exe manually - https://aka.ms/vs/17/release/vc_redist.x64.exe
 )
-del %temp%VC_redist.x64.exe
+del %temp%\VC_redist.x64.exe
 :endinstall64
 echo.
 
@@ -153,7 +154,7 @@ set "signal=%dljob:~-13,-1%"
 for %%I in (waitfor.exe) do set "waitfor=%%~$PATH:I"
 >nul (
     bitsadmin /setnotifycmdline %dljob% "%waitfor%" "%waitfor% /s %computername% /si %signal%"
-    bitsadmin /addfile %dljob% "https://aka.ms/vs/17/release/vc_redist.x86.exe" "%temp%VC_redist.x86.exe"
+    bitsadmin /addfile %dljob% "https://aka.ms/vs/17/release/vc_redist.x86.exe" "%temp%\VC_redist.x86.exe"
     bitsadmin /setpriority %dljob% FOREGROUND
     start /b "" bitsadmin /resume %dljob%
     waitfor /t 100 %signal%
@@ -171,20 +172,20 @@ goto endinstall86
 
 :install86
 echo [94m[...][0m Installing VC_redist.x86.exe ^(might take a bit^)
-%temp%VC_redist.x86.exe /install /quiet /norestart
+%temp%\VC_redist.x86.exe /install /quiet /norestart
 if ERRORLEVEL 0 (
    echo [32m[+][0m VC_redist.x86.exe installed successfully!
 ) else (
    echo [31m[!][0m VC_redist.x86.exe install failed with code: %ERRORLEVEL%
    echo [31m[!][0m Please, download and install VC_redist.x86.exe manually - https://aka.ms/vs/17/release/vc_redist.x86.exe
 )
-del %temp%VC_redist.x86.exe
+del %temp%\VC_redist.x86.exe
 :endinstall86
 echo.
 echo [32m[+][0m Finished!
 echo.
 echo [93m=================================================================================
-echo NOTICE: If there's any errors above, screenshot them and send to #general-help.
+echo NOTICE: If there's any errors above, screenshot them and post it to #community-help.
 echo You might also need to run "Install & Repair Easy Anti Cheat" launch option
 echo before running BattleBit itself.
 echo =================================================================================[0m

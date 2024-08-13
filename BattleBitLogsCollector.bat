@@ -11,17 +11,8 @@ if _%1_==_payload_  goto :payload
 goto :eof
 :payload
 title BattleBit Logs Collector >nul
-SET GamePath=
-FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 671860" /v "InstallLocation"') do SET GamePath="%%b"
-if not exist %GamePath% (
-  echo [91m[X][0m Unable to detect BattleBit Remastered folder.
-  echo In order to properly address your issue, you need to install the game and launch it once.
-  echo After that, you can run this batch script again.
-  echo.
-  pause
-  goto :eof
-)
-SET Logs=%UserProfile%\Desktop\BattleBit Logs
+:: i hate onedrive
+SET Logs=C:\Users\Public\Desktop\BattleBit Logs
 if not exist "%Logs%" ( if not exist "%Logs%.zip" goto :start )
 echo [91m[X][0m BattleBit Logs folder or BattleBit Logs.zip already exists on your desktop. 
 echo Please send it to BattleBit representative in order to get support.

@@ -38,17 +38,20 @@ echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@[0m
 echo.
-echo Hi. This batch will reinstall EAC and install VCRedist 2015-2022 x86-64. 
+echo Hi. This batch will reinstall EAC and install VCRedist 2015-2022 x86-64.
 pause
 cls
 
 echo [91m
 SET GamePath=
+if exist "%~dp0\BattleBit.exe" SET GamePath="%~dp0"
 FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 671860" /v "InstallLocation"') do SET GamePath="%%b"
 if DEFINED GamePath (
    echo [0m[94m[...][0m Game Path: %GamePath%
 ) else (
    echo [91m[X][0m Unable to detect BattleBit Remastered folder. Please install the game first, then run this batch script.
+   echo If BattleBit is already installed, try running this batch script from the game folder:
+   echo Right click on the game in Steam ^> Manage ^> Browse local files.
    pause
    goto :eof
 )
@@ -184,11 +187,12 @@ del %temp%\VC_redist.x86.exe
 echo.
 echo [32m[+][0m Finished!
 echo.
-echo [93m=================================================================================
-echo NOTICE: If there's any errors above, screenshot them and post it to #community-help.
-echo You might also need to run "Install & Repair Easy Anti Cheat" launch option
+echo [93m=============================================================================
+echo NOTICE: Make sure to screenshot any errors above and provide them 
+echo in related Discord thread or conversation with BattleBit support.
+echo You might need to run "Install & Repair Easy Anti Cheat" launch option
 echo before running BattleBit itself.
-echo =================================================================================[0m
+echo =============================================================================[0m
 echo.
 CHOICE /C YN /M "Do you want to reboot your PC (recommended)"
 

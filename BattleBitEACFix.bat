@@ -197,7 +197,7 @@ echo.
 CHOICE /C YN /M "Do you want to reboot your PC (recommended)"
 
 IF %ERRORLEVEL% EQU 1 (
-    shutdown /s /f /t 0
+    shutdown /r /f /t 0
 ) ELSE IF %ERRORLEVEL% EQU 2 (
     echo.
     echo [31m[!][0m Rebooting your PC is highly recommended, do it before opening BattleBit.
